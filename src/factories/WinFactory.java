@@ -1,19 +1,19 @@
 package factories;
 
 import button.Button;
-import button.MacButton;
+import button.WinButton;
 import checkbox.Checkbox;
-import checkbox.MacCheckbox;
+import checkbox.WinCheckbox;
 
+public class WinFactory implements GUIFactory {
 
-public class MacFactory implements GUIFactory {
     @Override
     public Button createButton() {
-        return new MacButton();
+        return new WinButton();
     }
 
     @Override
     public Checkbox createCheckbox() {
-        return new MacCheckbox();
+        return new WinCheckbox();
     }
 }

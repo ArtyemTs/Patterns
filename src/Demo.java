@@ -1,26 +1,20 @@
-import app.Appication;
-import factories.GUIFactory;
-import factories.MacFactory;
-import factories.WinFactory;
-
-public class Demo {
-    private static Appication configApp (){
-        Appication app;
-        GUIFactory factory;
-        String osName = System.getProperty("os.name").toLowerCase();
-        if(osName.contains("mac")){
-        factory = new MacFactory();
-        app = new Appication(factory);
-        } else {
-            factory = new WinFactory();
-            app = new Appication(factory);
-        }
-        return app;
-    }
-
+public class Demo{
     public static void main(String[] args) {
 
-        Appication app = configApp();
-        app.paint();
+        String salaryRecords = "Name, Salary\nJohn Smith, 100000\nSteven Jobs, 912000";
+        DataSourceDecorator encoded = new CompressionDecoder(new EncryptionDecorator(new FileDataSource("out/OutputDemo.txt")));
+
+        encoded.writeData(salaryRecords);
+
+        DataSource plain = new FileDataSource("out/OutputDemo.txt");
+
+        System.out.println("--Input-------");
+        System.out.println(salaryRecords);
+        System.out.println("--Encoded-----");
+        System.out.println(plain.readData());
+        System.out.println("--Decoded-----");
+        System.out.println(encoded.readData());
+
     }
+
 }

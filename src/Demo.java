@@ -1,20 +1,30 @@
-public class Demo{
+import adapter.SquarePegAdapter;
+import round.RoundHole;
+import round.RoundPeg;
+import square.SquarePeg;
+
+public class Demo {
     public static void main(String[] args) {
+        RoundHole hole = new RoundHole(5);
+        RoundPeg rpeg = new RoundPeg(5);
 
-        String salaryRecords = "Name, Salary\nJohn Smith, 100000\nSteven Jobs, 912000";
-        DataSourceDecorator encoded = new CompressionDecoder(new EncryptionDecorator(new FileDataSource("out/OutputDemo.txt")));
+        if (hole.fits(rpeg)){
+            System.out.println("round peg r5 fits round hole r5.");
+        }
 
-        encoded.writeData(salaryRecords);
+        SquarePeg smollPeg = new SquarePeg(2);
+        SquarePeg largePeg = new SquarePeg(200);
 
-        DataSource plain = new FileDataSource("out/OutputDemo.txt");
+        SquarePegAdapter smollSqPegAd = new SquarePegAdapter(smollPeg);
+        SquarePegAdapter largeSqPegAd = new SquarePegAdapter(largePeg);
 
-        System.out.println("--Input-------");
-        System.out.println(salaryRecords);
-        System.out.println("--Encoded-----");
-        System.out.println(plain.readData());
-        System.out.println("--Decoded-----");
-        System.out.println(encoded.readData());
+        if (hole.fits(smollSqPegAd)) {
+            System.out.println("Square peg w2 fits round hole r5.");
+        }
+
+        if (hole.fits(largeSqPegAd)) {
+            System.out.println("Square peg w200 fits round hole r5.");
+        }
 
     }
-
 }

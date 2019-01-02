@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/art.abstract_factory.iml" filepath="$PROJECT_DIR$/art.abstract_factory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Decorator.iml" filepath="$PROJECT_DIR$/Decorator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Adapter.iml" filepath="$PROJECT_DIR$/Adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/decorator_.iml" filepath="$PROJECT_DIR$/decorator_.iml" />
+      <module fileurl="file://$PROJECT_DIR$/facade.iml" filepath="$PROJECT_DIR$/facade.iml" />
     </modules>
   </component>
 </project>

@@ -34,7 +34,7 @@ public abstract class BaseShape implements Shape {
     }
 
     @Override
-    public int getHeigth() {
+    public int getHeight() {
         return 0;
     }
 
@@ -45,9 +45,10 @@ public abstract class BaseShape implements Shape {
     }
 
     @Override
-    public boolean isInsedeBounds(int x, int y) {
+    public boolean isInsideBounds(int x, int y) {
         return x > getX() && x<(getX() + getWidth()) &&
-                y > getY() && x<(getY() + getHeigth());
+                y > getY() && x<(getY() + getHeight
+                ());
     }
 
     @Override
@@ -72,7 +73,7 @@ public abstract class BaseShape implements Shape {
         g2.setStroke(new BasicStroke(1.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 2.0f, dash1, 0.0f));
     }
 
-    public void desableSelectionStyle(Graphics graphics){
+    public void disableSelectionStyle(Graphics graphics){
         graphics.setColor(color);
         Graphics2D g2 =(Graphics2D) graphics;
         g2.setStroke((new BasicStroke()));
@@ -83,7 +84,7 @@ public abstract class BaseShape implements Shape {
         if(isSelected()){
             enableSelectionStyle(graphics);
         } else {
-            desableSelectionStyle(graphics);
+            disableSelectionStyle(graphics);
         }
     }
 }

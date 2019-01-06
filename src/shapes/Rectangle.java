@@ -21,13 +21,13 @@ public class Rectangle extends BaseShape {
     }
 
     @Override
-    public int getHeigth() {
+    public int getHeight() {
         return height;
     }
 
     @Override
     public void paint(Graphics graphics) {
         super.paint(graphics);
-        graphics.drawRect(x, y, getWidth() - 1, getHeigth() - 1);
+        graphics.drawRect(x, y, getWidth() - 1, getHeight() - 1);
     }
 }

@@ -1,7 +1,6 @@
 package shapes;
 
 import java.awt.*;
-import java.util.Base64;
 
 public abstract class BaseShape implements Shape {
 

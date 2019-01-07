@@ -6,7 +6,7 @@ import shapes.Rectangle;
 
 import java.awt.*;
 
-public class DemoComposite {
+public class DemoSingletonSynch {
     public static void main(String[] args) {
         ImageEditor editor = new ImageEditor();
 

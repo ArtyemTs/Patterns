@@ -1,30 +1,36 @@
-import editor.ImageEditor;
-import shapes.Circle;
-import shapes.CompoundShape;
-import shapes.Dot;
-import shapes.Rectangle;
-
-import java.awt.*;
+import thread_safe.Singleton;
 
 public class DemoSingletonSynch {
     public static void main(String[] args) {
-        ImageEditor editor = new ImageEditor();
+        System.out.println("If you see the same value, then singleton was reused (yay!)" + "\n" +
+                "If you see different values, then 2 singletons were created (booo!!)" + "\n\n" +
+                "RESULT:" + "\n");
 
-        editor.loadShapes(
-                new Circle(10, 10, 10, Color.BLUE),
+        Thread threadFoo = new Thread(new ThreadFoo());
+        Thread threadBar = new Thread(new ThreadBar());
 
-                new CompoundShape(
-                        new Circle(110, 110, 50, Color.RED),
-                        new Dot(160, 160, Color.RED)
-                ),
+        threadFoo.start();
+        threadBar.start();
 
-                new CompoundShape(
-                        new Rectangle(250, 250, 100, 100, Color.GREEN),
-                        new Dot(240, 240, Color.GREEN),
-                        new Dot(240, 360, Color.GREEN),
-                        new Dot(360, 360, Color.GREEN),
-                        new Dot(360, 240, Color.GREEN)
-                )
-        );
+    }
+
+    static class ThreadFoo implements Runnable{
+
+        @Override
+        public void run (){
+            Singleton singleton = Singleton.getInstance("FOO");
+            System.out.println(singleton.value);
+        }
+    }
+
+
+    static class ThreadBar implements Runnable{
+
+        @Override
+        public void run (){
+            Singleton singleton = Singleton.getInstance("BAR");
+            System.out.println(singleton.value);
+        }
     }
 }
+

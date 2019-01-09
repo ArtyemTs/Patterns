@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/Decorator.iml" filepath="$PROJECT_DIR$/Decorator.iml" />
       <module fileurl="file://$PROJECT_DIR$/Adapter.iml" filepath="$PROJECT_DIR$/Adapter.iml" />
       <module fileurl="file://$PROJECT_DIR$/Factory_method.iml" filepath="$PROJECT_DIR$/Factory_method.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Observer.iml" filepath="$PROJECT_DIR$/Observer.iml" />
       <module fileurl="file://$PROJECT_DIR$/Singleton_synchronized.iml" filepath="$PROJECT_DIR$/Singleton_synchronized.iml" />
       <module fileurl="file://$PROJECT_DIR$/abstract_factory.iml" filepath="$PROJECT_DIR$/abstract_factory.iml" />
       <module fileurl="file://$PROJECT_DIR$/decorator_.iml" filepath="$PROJECT_DIR$/decorator_.iml" />

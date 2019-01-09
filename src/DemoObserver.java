@@ -1,35 +1,20 @@
-import thread_safe.Singleton;
+import editor.Editor;
+import listeners.EmailNotificationListener;
+import listeners.LogOpenListener;
 
 public class DemoObserver {
     public static void main(String[] args) {
-        System.out.println("If you see the same value, then singleton was reused (yay!)" + "\n" +
-                "If you see different values, then 2 singletons were created (booo!!)" + "\n\n" +
-                "RESULT:" + "\n");
 
-        Thread threadFoo = new Thread(new ThreadFoo());
-        Thread threadBar = new Thread(new ThreadBar());
+        Editor editor = new Editor();
 
-        threadFoo.start();
-        threadBar.start();
+        editor.events.subscribe("open", new LogOpenListener("/path/to/log/file.txt"));
+        editor.events.subscribe("save", new EmailNotificationListener("admin@example.com"));
 
-    }
-
-    static class ThreadFoo implements Runnable{
-
-        @Override
-        public void run (){
-            Singleton singleton = Singleton.getInstance("FOO");
-            System.out.println(singleton.value);
-        }
-    }
-
-
-    static class ThreadBar implements Runnable{
-
-        @Override
-        public void run (){
-            Singleton singleton = Singleton.getInstance("BAR");
-            System.out.println(singleton.value);
+        try {
+            editor.openFile("test.txt");
+            editor.saveFile();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

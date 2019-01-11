@@ -11,6 +11,6 @@ public interface Builder {
     void setSeats(int seats);
     void setEngine(Engine engine);
     void setTransmission(Transmission transmission);
-    void setTripConputer(TripComputer tripConputer);
+    void setTripComputer(TripComputer tripConputer);
     void setGPSNavigator(GPSNavigator gpsNavigator);
 }

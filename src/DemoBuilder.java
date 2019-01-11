@@ -2,7 +2,7 @@ import editor.Editor;
 import listeners.EmailNotificationListener;
 import listeners.LogOpenListener;
 
-public class DemoObserver {
+public class DemoBuilder {
     public static void main(String[] args) {
 
         Editor editor = new Editor();

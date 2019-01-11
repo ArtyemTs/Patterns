@@ -1,21 +1,35 @@
-import editor.Editor;
-import listeners.EmailNotificationListener;
-import listeners.LogOpenListener;
+import Director.Director;
+import builders.CarBuilder;
+import builders.CarManualBuilder;
+import cars.Car;
+import cars.Manual;
 
 public class DemoBuilder {
     public static void main(String[] args) {
 
-        Editor editor = new Editor();
+        // Директор получает объект конкретного строителя от клиента
+        // (приложения). Приложение само знает какой строитель использовать,
+        // чтобы получить нужный продукт.
+        Director director = new Director();
 
-        editor.events.subscribe("open", new LogOpenListener("/path/to/log/file.txt"));
-        editor.events.subscribe("save", new EmailNotificationListener("admin@example.com"));
+        CarBuilder carBuilder = new CarBuilder();
 
-        try {
-            editor.openFile("test.txt");
-            editor.saveFile();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        director.constructSportsCar(carBuilder);
+
+        // Директор получает объект конкретного строителя от клиента
+        // (приложения). Приложение само знает какой строитель использовать,
+        // чтобы получить нужный продукт.
+        Car car = carBuilder.getResult();
+
+        System.out.println("Car built:\\n" + car.getType());
+
+        CarManualBuilder manualBuilder = new CarManualBuilder();
+
+        // Директор может знать больше одного рецепта строительства.
+
+        director.constructSportsCar(manualBuilder);
+        Manual carManual = manualBuilder.getResult();
+        System.out.println("\nCar manual built:\n" + carManual.print());
     }
 }
 

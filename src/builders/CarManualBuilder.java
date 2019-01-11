@@ -38,7 +38,7 @@ public class CarManualBuilder implements Builder {
     }
 
     @Override
-    public void setTripConputer(TripComputer tripConputer) {
+    public void setTripComputer(TripComputer tripConputer) {
         this.tripComputer = tripConputer;
     }
 

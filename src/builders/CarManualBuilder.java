@@ -1,6 +1,7 @@
 package builders;
 
 import cars.Car;
+import cars.Manual;
 import cars.Type;
 import componets.Engine;
 import componets.GPSNavigator;

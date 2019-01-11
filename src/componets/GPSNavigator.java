@@ -8,7 +8,7 @@ public class GPSNavigator {
         this.rout = "221b, Baker Street, London  to Scotland Yard, 8-10 Broadway, London";
     }
 
-    public GPSNavigator(String rout) {
+    public GPSNavigator(String manualRout) {
         this.rout = manualRout;
     }
 

@@ -4,7 +4,7 @@ import builders.CarManualBuilder;
 import cars.Car;
 import cars.Manual;
 
-public class DemoBuilder {
+public class DemoStrategy {
     public static void main(String[] args) {
 
         // Директор получает объект конкретного строителя от клиента
